@@ -1,0 +1,56 @@
+﻿@model IEnumerable<tx12.Models.Organizator>
+
+@{
+    ViewData["Title"] = "AllOrganizators";
+}
+
+<section class="section why-us" data-section="section2">
+    <div class="col-md-12">
+        <div class="section-heading">
+            <h2>Prikaz svih ucesnika</h2>
+        </div>
+    </div>
+    <table class="table" style="background-color: #d39e0047;border:none;border: solid;border-color: white;">
+        <thead style="color:cornflowerblue;background-color:#131c2dba">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdOrganizatora)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Naziv)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AdresaSedista)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdGrada)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td style="color:white">
+                    @Html.DisplayFor(modelItem => item.IdOrganizatora)
+                </td>
+                <td style="color:white">
+                    @Html.DisplayFor(modelItem => item.Naziv)
+                </td>
+                <td style="color:white">
+                    @Html.DisplayFor(modelItem => item.AdresaSedista)
+                </td>
+                <td style="color:white">
+                    @Html.DisplayFor(modelItem => item.IdGrada)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "IzmeniOrganizatora", new { id = item.IdOrganizatora }) |
+                    @Html.ActionLink("Details", "DetaljiOrganizatora", new { id = item.IdOrganizatora }) |
+                    @Html.ActionLink("Delete", "DeleteOrganizatora", new { id = item.IdOrganizatora })
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</section>

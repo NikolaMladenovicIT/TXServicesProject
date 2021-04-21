@@ -1,0 +1,79 @@
+﻿@model IEnumerable<tx12.Models.Ucesnik>
+
+@{
+    ViewData["Title"] = "AllUcesniks";
+}
+<section class="section why-us" data-section="section2">
+    <div class="col-md-12">
+        <div class="section-heading">
+            <h2>Prikaz svih ucesnika</h2>
+        </div>
+    </div>
+    <table class="table" style="background-color: #00000036;border:none;border: solid;border-color: white;">
+        <thead style="color:cornflowerblue;background-color:#131c2dba">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdUcesnika)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Prezime)
+                </th>
+                <th style="color:cornflowerblue">
+                    @Html.DisplayNameFor(model => model.Institucija)
+                </th>
+                <th style="color:cornflowerblue">
+                    @Html.DisplayNameFor(model => model.Telefon)
+                </th>
+                <th style="color:cornflowerblue">
+                    @Html.DisplayNameFor(model => model.EMail)
+                </th>
+                <th style="color:cornflowerblue">
+                    @Html.DisplayNameFor(model => model.OznakaDrzave)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="color:white">
+                        @Html.DisplayFor(modelItem => item.IdUcesnika)
+                    </td>
+                    <td style="color:white">
+                        @Html.DisplayFor(modelItem => item.Ime)
+                    </td>
+                    <td style="color:white">
+                        @Html.DisplayFor(modelItem => item.Prezime)
+                    </td>
+                    <td style="color:white">
+                        @Html.DisplayFor(modelItem => item.Institucija)
+                    </td>
+                    <td style="color:white">
+                        @Html.DisplayFor(modelItem => item.Telefon)
+                    </td>
+                    <td style="color:white">
+                        @Html.DisplayFor(modelItem => item.EMail)
+                    </td>
+                    <td style="color:white">
+                        @Html.DisplayFor(modelItem => item.OznakaDrzave)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "IzmeniUcesnika", new { id = item.IdUcesnika })
+                        @Html.ActionLink("Details", "DetaljiUcesnika", new {  id=item.IdUcesnika  })
+                        @Html.ActionLink("Delete", "DeleteUcesnika", new { id = item.IdUcesnika })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="section-heading">
+        <h2 style="margin-bottom:0px"></h2>
+    </div>
+    <div class="col-md-12">
+    </div>
+</section>

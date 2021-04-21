@@ -1,0 +1,59 @@
+﻿@model tx12.Models.Ucesnik
+
+@{
+    ViewData["Title"] = "KreirajUcesnika";
+}
+
+<section class="section courses" data-section="section4">
+    <div class="col-md-12">
+        <div class="section-heading">
+            <h2>Unesite novog ucesnika</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" style="color: #0c182e; align-content: center; margin-left: 33.5%; background-color: #fabf343d; width: 100px; ">
+            <form asp-action="KreirajUcesnika">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Ime" class="control-label"></label>
+                    <input asp-for="Ime" class="form-control" />
+                    <span asp-validation-for="Ime" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Prezime" class="control-label"></label>
+                    <input asp-for="Prezime" class="form-control" />
+                    <span asp-validation-for="Prezime" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Institucija" class="control-label"></label>
+                    <input asp-for="Institucija" class="form-control" />
+                    <span asp-validation-for="Institucija" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Telefon" class="control-label"></label>
+                    <input asp-for="Telefon" class="form-control" type="number" />
+                    <span asp-validation-for="Telefon" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EMail" class="control-label"></label>
+                    <input asp-for="EMail" class="form-control"  type="email"/>
+                    <span asp-validation-for="EMail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="OznakaDrzave" class="control-label"></label>
+                    <input asp-for="OznakaDrzave" class="form-control" />
+                    <span asp-validation-for="OznakaDrzave" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+

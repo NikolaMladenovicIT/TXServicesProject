@@ -1,0 +1,176 @@
+﻿@model tx12.Models.Konferencija
+
+@{
+    ViewData["Title"] = "IzmeniKonferenciju";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="Nikola Mladenovic" content="">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <title>CONFERENCE TRACKING SYSTEM</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="~/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="stylesheet" href="~/assets/css/owl.css">
+    <link rel="stylesheet" href="~/assets/css/lightbox.css">
+</head>
+
+<body>
+    <form asp-action="IzmeniKonferenciju">
+        <section class="section why-us" data-section="section2">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdBroj" class="control-label" style="visibility:hidden"></label>
+                <input asp-for="IdBroj" class="form-control" readonly style="visibility:hidden" />
+                <span asp-validation-for="IdBroj" class="text-danger" style="visibility:hidden"></span>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-heading">
+                            <h2>Izmenite podatke selektovane konferencije</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div id='tabs'>
+                            <ul>
+                                <li><a href='#tabs-1'>Naziv</a></li>
+                                <li><a href='#tabs-2'>Datum</a></li>
+                                <li><a href='#tabs-3'>Organizator</a></li>
+                            </ul>
+                            <section class='tabs-content'>
+                                <article id='tabs-1'>
+                                    <div class="row">
+                                        <div class="col-md-6" style="margin-left:30%">
+                                            <h4>Izmenite naziv konferencije</h4>
+                                            <div class="form-group">
+                                                <label asp-for="Naziv" class="control-label" style="color:aliceblue">Unesite novi naziv konferencije</label>
+                                                <input asp-for="Naziv" class="form-control" style="height: 30px;border-radius: 25px;" />
+                                                <span asp-validation-for="Naziv" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                <article id='tabs-2'>
+                                    <div class="row">
+                                        <div class="col-md-6" style="margin-left:20%">
+                                            <h4>Selektujte novi datum odrzavanja konferencije</h4>
+                                            <div class="form-group" style="margin-left:60px">
+                                                <label asp-for="DatPocetka" class="control-label" style="color:aliceblue">Datum i vreme pocetka konferencije</label>
+                                                <input asp-for="DatPocetka" class="form-control" style="height: 30px;border-radius: 25px;" />
+                                                <span asp-validation-for="DatPocetka" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group" style="margin-left:49px">
+                                                <label asp-for="DatZavrsetka" class="control-label" style="color:aliceblue">Datum i vreme zavrsetka konferencije</label>
+                                                <input asp-for="DatZavrsetka" class="form-control" style="height: 30px;border-radius: 25px;" />
+                                                <span asp-validation-for="DatZavrsetka" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                <article id='tabs-3'>
+                                    <div class="row">
+                                        <div class="col-md-6" style="margin-left:35%">
+                                            <h4>Odaberite organizatora</h4>
+                                            <div class="form-group" style="margin-left:50px">
+                                                <label asp-for="IdOrganizatora" class="control-label" style="color:aliceblue">Organizatori</label> @*<input asp-for="AutorId" class="form-control" />*@ <select style="height: 30px;border-radius: 25px;" asp-for="IdOrganizatora" asp-items="@(new SelectList(ViewBag.ListaOrganizatora, "IdOrganizatora", "Naziv"))">
+                                                    <option value="">Selektujte dostupne organizatora</option>
+                                                </select>
+                                                <span asp-validation-for="IdOrganizatora" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <center><em><input type="submit" value="Save" class="btn btn-primary" style="height: 30px; border-radius: 25px;background-color:#f5a425;width:100px;height:35px;margin-top:50px" /></em></center>
+            </div>
+        </section>
+
+    </form>
+
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/assets/js/isotope.min.js"></script>
+    <script src="~/assets/js/owl-carousel.js"></script>
+    <script src="~/assets/js/lightbox.js"></script>
+    <script src="~/assets/js/tabs.js"></script>
+    <script src="~/assets/js/video.js"></script>
+    <script src="~/assets/js/slick-slider.js"></script>
+    <script src="~/assets/js/custom.js"></script>
+    <script>
+        //according to loftblog tut
+        $('.nav li:first').addClass('active');
+
+        var showSection = function showSection(section, isAnimate) {
+            var
+                direction = section.replace(/#/, ''),
+                reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+                reqSectionPos = reqSection.offset().top - 0;
+
+            if (isAnimate) {
+                $('body, html').animate({
+                    scrollTop: reqSectionPos
+                },
+                    800);
+            } else {
+                $('body, html').scrollTop(reqSectionPos);
+            }
+
+        };
+
+        var checkSection = function checkSection() {
+            $('.section').each(function () {
+                var
+                    $this = $(this),
+                    topEdge = $this.offset().top - 80,
+                    bottomEdge = topEdge + $this.height(),
+                    wScroll = $(window).scrollTop();
+                if (topEdge < wScroll && bottomEdge > wScroll) {
+                    var
+                        currentId = $this.data('section'),
+                        reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+                    reqLink.closest('li').addClass('active').
+                        siblings().removeClass('active');
+                }
+            });
+        };
+
+        $('.main-menu, .scroll-to-section').on('click', 'a', function (e) {
+            if ($(e.target).hasClass('external')) {
+                return;
+            }
+            e.preventDefault();
+            $('#menu').removeClass('active');
+            showSection($(this).attr('href'), true);
+        });
+
+        $(window).scroll(function () {
+            checkSection();
+        });
+    </script>
+
+</body>
+</html>
+

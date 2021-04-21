@@ -1,0 +1,7 @@
+C:\Users\n.mladenovic\Desktop\WEB API\tx13\TestingTxApp\obj\Debug\net5.0\TestingTxApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\n.mladenovic\Desktop\WEB API\tx13\TestingTxApp\obj\Debug\net5.0\TestingTxApp.AssemblyInfoInputs.cache
+C:\Users\n.mladenovic\Desktop\WEB API\tx13\TestingTxApp\obj\Debug\net5.0\TestingTxApp.AssemblyInfo.cs
+C:\Users\n.mladenovic\Desktop\WEB API\tx13\TestingTxApp\obj\Debug\net5.0\TestingTxApp.csproj.CoreCompileInputs.cache
+C:\Users\n.mladenovic\Desktop\WEB API\tx13\TestingTxApp\obj\Debug\net5.0\TestingTxApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\n.mladenovic\Desktop\WEB API\tx13\TestingTxApp\obj\Debug\net5.0\TestingTxApp.RazorAssemblyInfo.cache
+C:\Users\n.mladenovic\Desktop\WEB API\tx13\TestingTxApp\obj\Debug\net5.0\TestingTxApp.RazorAssemblyInfo.cs

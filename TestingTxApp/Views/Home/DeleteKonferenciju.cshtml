@@ -1,0 +1,21 @@
+﻿@model tx12.Models.Konferencija
+
+@{
+    ViewData["Title"] = "DeleteKonferenciju";
+}
+<section class="section why-us" data-section="section2">
+    <div class="col-md-12">
+        <div class="section-heading">
+            <h2><em>success</em></h2>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="section-heading">
+            <center> <h2 style="color: #bfbc3c9c;">Uspesno obrisana konferencija!</h2></center>
+        </div>
+    </div>
+    <script>
+        window.setTimeout(function () {
+            window.location.href = 'https://localhost:44358/Home/AllKonferencijas';
+        }, 2500);</script>
+</section>
